@@ -1,0 +1,15 @@
+.new-user {
+    padding: 15px;
+    border-bottom: 1px solid #282c3370;
+    background-color: #928e8e1a;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-user button:first-child {
+    margin-right: 4px;
+}
+
+.new-user-btn-box {
+    text-align: right;
+}
