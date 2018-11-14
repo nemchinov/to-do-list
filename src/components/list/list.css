@@ -29,3 +29,7 @@
     font-weight: bold;
     opacity: 1;
 }
+
+.task-text {
+    margin-left: 10px;
+}

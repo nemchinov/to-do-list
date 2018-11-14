@@ -61,15 +61,20 @@ class List extends Component {
 
         return (
             <div className="task-list">
+                {!(items && items.length) ?
+                    <label>Tasks not found</label> : ''
+                }
                 {items ? items.sort(sort.bind(null, order)).map((item) => (
                     <div className={!item.complited ? 'alert alert-primary' : 'alert alert-success'} role="alert" key={item.id}>
                         <h5 className='alert-heading'>
-                            <input type="checkbox" 
-                                className="form-check-input" 
-                                title="Set complited"
-                                onChange={onCheckChange.bind(null, item)} 
-                                value={item.complited}
-                                checked={item.complited}/>
+                            { !item.complited ? 
+                                <input type="checkbox" 
+                                    className="form-check-input" 
+                                    title="Set complited"
+                                    onChange={onCheckChange.bind(null, item)} 
+                                    checked={!!item.complited}/> : ''
+                            }
+                        
                             <span>{item.title}</span>
                         </h5>
                         {editId === item.id ?
@@ -92,12 +97,12 @@ class List extends Component {
                                         onClick={onCancel}>Cancel</button>
                                 </div>
                             </div>
-                            : item.text
+                            : <span className="task-text">item.text</span>
                         }
                         <button type="button" className="close" aria-label="Close" onClick={onRemove.bind(null, item)}>
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        {editId !== item.id ?
+                        {editId !== item.id && !item.complited ?
                             <button type="button" className="edit" onClick={onEdit.bind(null, item)}>
                                 edit
                             </button>   : ''

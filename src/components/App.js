@@ -62,15 +62,16 @@ class App extends Component {
                             onClick={show}>+</button>
                         <button type="button" 
                             className="btn btn-outline-light" 
+                            disabled={!(taskList && taskList.length)}
                             title="Sort tasks"
                             onClick={toggleOrder}>Sort</button>
                       </nav>
                   </header>
                   <div className="App-body">
-                      { showNewUser &&
-                          <NewUser accept={accept} cancel={cancel}></NewUser>          
-                      }
-                      <List items={taskList} order={order} update={update} remove={remove}></List>
+                        { showNewUser &&
+                            <NewUser accept={accept} cancel={cancel}></NewUser>          
+                        }
+                        <List items={taskList} order={order} update={update} remove={remove}></List>
                   </div>
               </div>
           );
