@@ -81,8 +81,8 @@ class List extends Component {
                             <div className="input-group">
                                 <input type="text" 
                                     className="form-control" 
-                                    placeholder="Recipient's username" 
-                                    aria-label="Recipient's username" 
+                                    placeholder="Task text" 
+                                    aria-label="Task text" 
                                     aria-describedby="basic-addon2" 
                                     onChange={onChangeText}
                                     onKeyPress={handleKeyPress.bind(null, item)}
@@ -97,7 +97,7 @@ class List extends Component {
                                         onClick={onCancel}>Cancel</button>
                                 </div>
                             </div>
-                            : <span className="task-text">item.text</span>
+                            : <span className="task-text">{item.text}</span>
                         }
                         <button type="button" className="close" aria-label="Close" onClick={onRemove.bind(null, item)}>
                             <span aria-hidden="true">&times;</span>
