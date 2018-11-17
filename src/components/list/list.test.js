@@ -1,9 +1,8 @@
-/* eslint-disable */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 
-import List from './list.js';
+import List from './list';
 
 const PROPS = {
     items: [{

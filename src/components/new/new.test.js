@@ -1,9 +1,8 @@
-/* eslint-disable */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 
-import NewUser from './new.js';
+import NewUser from './new';
 
 describe('New user', () => {
   it('renders without crashing', () => {
