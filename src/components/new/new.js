@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './new.css';
 
@@ -88,5 +89,10 @@ class NewUser extends Component {
         );
     }
 }
+
+NewUser.propTypes = {
+    accept: PropTypes.func,
+    cancel: PropTypes.func
+};
 
 export default NewUser;

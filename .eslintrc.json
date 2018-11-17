@@ -21,7 +21,8 @@
         "eslint:recommended"
     ],
     "rules": {
-        "semi": 2
+        "semi": 2,
+        "no-console": 1
     },
     "settings": {
         "react": {

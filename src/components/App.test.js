@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 
-import { App } from './App';
+import { Application } from './App';
 
 const PROPS = {
   loadTasks() { return null; },
@@ -29,12 +29,12 @@ const PROPS = {
 describe('App', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<App {...PROPS} />, div);
+    ReactDOM.render(<Application {...PROPS} />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   test('snapshot', () => {
-    const component = renderer.create(<App {...PROPS} />);
+    const component = renderer.create(<Application {...PROPS} />);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

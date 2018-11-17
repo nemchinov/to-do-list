@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './list.css';
 
@@ -16,12 +17,12 @@ class List extends Component {
         };
     }
     onCheckChange = (item, event) => {
-        const { update } = this.props
+        const { update } = this.props;
         event.preventDefault();
         update({...item, complited: event.currentTarget.checked});
     }
     onRemove = (item) => {
-        const { remove } = this.props
+        const { remove } = this.props;
         remove(item);
     }
     onEdit = (item, event) => {
@@ -113,5 +114,12 @@ class List extends Component {
         );
     }
 }
+
+List.propTypes = {
+    update: PropTypes.func,
+    remove: PropTypes.func,
+    items: PropTypes.array,
+    order: PropTypes.string
+};
 
 export default List;

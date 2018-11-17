@@ -1,5 +1,5 @@
 import types from './types';
-import config from './config'
+import config from './config';
 
 function getIndex(taskList, id) {
     return taskList.findIndex((v) => v.id === id);
@@ -14,17 +14,19 @@ const rootReducer = (state, action) => {
     let index = -1;
 
     switch (action.type) {
-        case types.ACTION_CHANGE_ORDER:
+        case types.ACTION_CHANGE_ORDER: {
             return { ...state, order: order === 'asc' ? 'desc' : 'asc' };
-        case types.ACTION_ADD_TASK:
+        }
+        case types.ACTION_ADD_TASK: {
             action.payload.id = window.btoa(JSON.stringify(action.payload) + (new Date().valueOf()));
             
             let list = [...taskList, action.payload];
             
             updateStorage(list);
 
-            return { ...state, taskList: list };
-        case types.ACTION_UPDATE_TASK:
+            return { ...state, taskList: list }; 
+        }
+        case types.ACTION_UPDATE_TASK: {
             const { id, task } = action.payload;
             
             index = getIndex(taskList, id);
@@ -37,8 +39,9 @@ const rootReducer = (state, action) => {
                 return { ...state, taskList: list };
             } else {
                 return state;
-            }
-        case types.ACTION_REMOVE_TASK:
+            } 
+        }
+        case types.ACTION_REMOVE_TASK: {
             index = getIndex(taskList, action.payload);
 
             if (index > -1) {
@@ -50,10 +53,13 @@ const rootReducer = (state, action) => {
             } else {
                 return state;
             }
-        case types.ACTION_LOAD_TASKS:
-            return { ...state, taskList: (action.payload || taskList)}
-        default: 
-            return state;
+        }
+        case types.ACTION_LOAD_TASKS: {
+            return { ...state, taskList: (action.payload || taskList)};
+        }
+        default: {
+            return state; 
+        }
     }
 };
 

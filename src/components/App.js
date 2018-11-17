@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import actions from '../storage/actions';
 
 import NewUser from './new/new';
 import List from './list/list';
-import config from '../storage/config'
+import config from '../storage/config';
 
 import './App.css';
 
@@ -78,5 +79,15 @@ class App extends Component {
     }
 }
 
+App.propTypes = {
+    loadTasks: PropTypes.func,
+    changeOrder: PropTypes.func,
+    addTask: PropTypes.func,
+    updateTask: PropTypes.func,
+    removeTask: PropTypes.func,
+    taskList: PropTypes.array, 
+    order: PropTypes.string
+};
+
 export default connect(actions.stateToProps, actions.actionsToProps)(App);
-export { App };
+export { App as Application };

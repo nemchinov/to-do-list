@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 
-import types from './types'
+import types from './types';
 
 const changeOrder = () => {
         return {
