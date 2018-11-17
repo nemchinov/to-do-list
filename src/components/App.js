@@ -79,3 +79,4 @@ class App extends Component {
 }
 
 export default connect(actions.stateToProps, actions.actionsToProps)(App);
+export { App };

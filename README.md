@@ -19,9 +19,13 @@ Application language: JavaScript
 
 Libraries: React, Redux, create-react-app
 
+Tests: Jest, react-test-renderer
+
 Commands:
 
-* "start": npm start
+* start: `npm start`
 
-* "build": npm run build
+* build: `npm run build`
+
+* test: `npm run test`
 
